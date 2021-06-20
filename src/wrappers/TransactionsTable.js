@@ -19,14 +19,14 @@ export const TransactionsTable = () => {
         amount: "Amount",
       }}
     >
-      <Transaction date="2021" company="C" account="A" amount="$" />
-      <Transaction
-        date="2021"
-        company="D"
-        account="B"
-        amount="$"
-        active={true}
-      />
+      {transactions.map(({ date, account, amount, company }) => (
+        <Transaction
+          date={date}
+          company={company}
+          account={account}
+          amount={amount}
+        />
+      ))}
     </Transactions>
   );
 };

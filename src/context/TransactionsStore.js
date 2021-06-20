@@ -11,7 +11,16 @@ export const TransactionsStore = ({ children }) => {
     const load = async () => {
       getRecords(1).then(({ totalCount, page, transactions: records }) => {
         setIsLoading(false);
-        setTransactions(records);
+
+        const transformed = records.map(
+          ({ Date, Ledger, Amount, Company }) => ({
+            date: Date,
+            account: Ledger,
+            amount: Amount,
+            company: Company,
+          })
+        );
+        setTransactions(transformed);
       });
     };
 

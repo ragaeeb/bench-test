@@ -1,8 +1,8 @@
 import "./App.css";
 import { Container } from "react-bootstrap";
-import { TransactionsStore } from "./context/TransactionsStore.js";
+import { TransactionsStore } from "./context/TransactionsStore";
 import Header from "./components/Header";
-import TransactionsTable from "./wrappers/TransactionsTable";
+import TransactionRecords from "./wrappers/TransactionRecords";
 
 const App = () => {
   return (
@@ -11,7 +11,7 @@ const App = () => {
         <Header title="Bench Test" />
         <section className="content">
           <Container>
-            <TransactionsTable />
+            <TransactionRecords />
           </Container>
         </section>
       </div>

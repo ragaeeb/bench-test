@@ -22,10 +22,10 @@ export const TransactionsTable = () => {
           amount: Currency.format(balance),
         }}
       >
-        {transactions.map(({ date, account, amount, company }, i) => (
+        {transactions.map(({ timestamp, account, amount, company }, i) => (
           <Transaction
             key={i} // generally this is not a good key to use since the order is not guaranteed from the API, if we had a transaction ID that should be used
-            date={date}
+            date={timestamp.toDateString()}
             company={company}
             account={account}
             amount={amount}

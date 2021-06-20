@@ -30,8 +30,8 @@ export const TransactionsStore = ({ children }) => {
 
         // I am doing this so in case the shape of the data changes from the back-end in the future, we only have one place in the code to change instead of it bleeding through the UI components
         const transformed = records.map(
-          ({ Date, Ledger, Amount, Company }) => ({
-            date: Date,
+          ({ Date: date, Ledger, Amount, Company }) => ({
+            timestamp: new Date(Date.parse(date)),
             account: Ledger,
             amount: Amount,
             company: Company,

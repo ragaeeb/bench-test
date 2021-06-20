@@ -1,7 +1,7 @@
-import { bool, string } from "prop-types";
+import { string } from "prop-types";
 
 export const Transaction = ({ date, company, account, amount, active }) => (
-  <tr className={active && "green"}>
+  <tr>
     <td>{date}</td>
     <td>{company}</td>
     <td>{account}</td>
@@ -10,7 +10,6 @@ export const Transaction = ({ date, company, account, amount, active }) => (
 );
 
 Transaction.propTypes = {
-  active: bool,
   date: string,
   company: string,
   account: string,

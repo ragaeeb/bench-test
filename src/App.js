@@ -2,7 +2,7 @@ import "./App.css";
 import { Container } from "react-bootstrap";
 import { TransactionsStore } from "./context/TransactionsStore.js";
 import Header from "./components/Header";
-import Transactions from "./components/Transactions";
+import TransactionsTable from "./wrappers/TransactionsTable";
 
 const App = () => {
   return (
@@ -11,14 +11,7 @@ const App = () => {
         <Header title="Bench Test" />
         <section className="content">
           <Container>
-            <Transactions
-              labels={{
-                date: "Date",
-                company: "Company",
-                account: "Account",
-                amount: "Amount",
-              }}
-            />
+            <TransactionsTable />
           </Container>
         </section>
       </div>

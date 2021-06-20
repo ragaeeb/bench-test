@@ -1,7 +1,10 @@
 import { Table } from "react-bootstrap";
 import { string, shape } from "prop-types";
 
-const Transactions = ({ labels: { date, company, account, amount } }) => {
+const Transactions = ({
+  labels: { date, company, account, amount },
+  children,
+}) => {
   return (
     <Table striped bordered hover>
       <thead>
@@ -12,25 +15,7 @@ const Transactions = ({ labels: { date, company, account, amount } }) => {
           <th>{amount}</th>
         </tr>
       </thead>
-      <tbody>
-        <tr>
-          <td>1</td>
-          <td>Mark</td>
-          <td>Otto</td>
-          <td>@mdo</td>
-        </tr>
-        <tr className="green">
-          <td>2</td>
-          <td>Jacob</td>
-          <td>Thornton</td>
-          <td>@fat</td>
-        </tr>
-        <tr>
-          <td>3</td>
-          <td colSpan="2">Larry the Bird</td>
-          <td>@twitter</td>
-        </tr>
-      </tbody>
+      <tbody>{children}</tbody>
     </Table>
   );
 };

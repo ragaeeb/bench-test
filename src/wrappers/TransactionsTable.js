@@ -4,8 +4,13 @@ import Transactions from "../components/Transactions";
 import Transaction from "../components/Transaction";
 import { Spinner } from "react-bootstrap";
 
+const Currency = new Intl.NumberFormat("en-US", {
+  style: "currency",
+  currency: "USD",
+});
+
 export const TransactionsTable = () => {
-  const { isLoading, transactions } = useContext(TransactionsStore);
+  const { isLoading, transactions, balance } = useContext(TransactionsStore);
 
   return (
     <>
@@ -14,7 +19,7 @@ export const TransactionsTable = () => {
           date: "Date",
           company: "Company",
           account: "Account",
-          amount: "Amount",
+          amount: Currency.format(balance),
         }}
       >
         {transactions.map(({ date, account, amount, company }, i) => (

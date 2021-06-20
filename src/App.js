@@ -1,25 +1,29 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import { Container } from "react-bootstrap";
+import { TransactionsStore } from "./context/TransactionsStore.js";
+import Header from "./components/Header";
+import Transactions from "./components/Transactions";
 
-function App() {
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <TransactionsStore>
+      <div className="App">
+        <Header title="Bench Test" />
+        <section className="content">
+          <Container>
+            <Transactions
+              labels={{
+                date: "Date",
+                company: "Company",
+                account: "Account",
+                amount: "Amount",
+              }}
+            />
+          </Container>
+        </section>
+      </div>
+    </TransactionsStore>
   );
-}
+};
 
 export default App;
